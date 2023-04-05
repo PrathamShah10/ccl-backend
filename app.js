@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const router = require("./routes/book-routes");
 const cors = require("cors");
 const app = express();
-
+const PORT = process.env.PORT || 5003;
 // Middlewares
 app.use(express.json());
 app.use(cors());
@@ -18,3 +18,6 @@ mongoose
     app.listen(5000 || process.env.PORT);
   })
   .catch((err) => console.log(err));
+  app.listen(PORT,()=> {
+    console.log('server is running on',PORT);
+})
